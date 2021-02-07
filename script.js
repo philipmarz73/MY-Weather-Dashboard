@@ -60,3 +60,7 @@ function createCityList(citySearchList) {
       );
       $("#current-icon").empty();
       $("#current-icon").append(weatherIcon);
+
+      $("#current-temp").text("Temperature: " + weather.main.temp + " °F");
+      $("#current-humidity").text("Humidity: " + weather.main.humidity + "%");
+      $("#current-wind").text("Wind Speed: " + weather.wind.speed + " MPH");
