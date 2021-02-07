@@ -163,5 +163,13 @@ $("#search-button").on("click", function(event) {
       .toLowerCase();
 
     if (city != "") {
-
-  
+        
+// if city is input, show current weather and forecast
+        citySearchList[city] = true;
+        localStorage.setItem("citySearchList", JSON.stringify(citySearchList));
+    
+        populateCityWeather(city, citySearchList);
+    
+        $("#current-weather").show();
+        $("#forecast-weather").show();
+        }
