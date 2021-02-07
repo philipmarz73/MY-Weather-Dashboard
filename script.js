@@ -88,4 +88,11 @@ function createCityList(citySearchList) {
             $("#current-uv").text("UV Index: ");
             $("#current-uv").append(uvIndexDisplay.text(uvIndex[0].value));
             console.log(uvIndex[0].value);
+
+        $.ajax({
+            url: queryURL2,
+            method: "GET"
+                // Store all of the retrieved data inside of an object called "forecast"
+          }).then(function(forecast) {
+                console.log(queryURL2);   
      
