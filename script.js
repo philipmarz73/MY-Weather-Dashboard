@@ -28,3 +28,11 @@ function createCityList(citySearchList) {
     var queryURL2 =
     "https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=aaf4ebe95bfbef423b2ba1a39922ee77&q=" +
     city;
+
+    var latitude;
+    var longitude;
+    
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  })
