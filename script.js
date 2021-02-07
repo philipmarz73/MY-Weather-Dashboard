@@ -131,3 +131,19 @@ function createCityList(citySearchList) {
 });
 });
 
+// retrieve city search list from localstorage
+$(document).ready(function() {
+    var citySearchListStringified = localStorage.getItem("citySearchList");
+    var citySearchList = JSON.parse(citySearchListStringified);
+
+  if (citySearchList == null) {
+    citySearchList = {};
+  }
+  var citySearchList = JSON.parse(citySearchListStringified);
+
+  if (citySearchList == null) {
+    citySearchList = {};
+  }
+
+//    create city search list
+  
