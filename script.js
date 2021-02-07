@@ -44,7 +44,7 @@ function createCityList(citySearchList) {
     console.log(queryURL);
     // Log the resulting weather object
     console.log(weather);
-
+  })
     var presentMoment = moment()
 // showing present time
     var displayMoment = $("<h3>");
@@ -90,7 +90,7 @@ function createCityList(citySearchList) {
     $("#current-uv").text("UV Index: ");
     $("#current-uv").append(uvIndexDisplay.text(uvIndex[0].value));
         console.log(uvIndex[0].value);
-
+          
         $.ajax({
             url: queryURL2,
             method: "GET"
@@ -121,7 +121,7 @@ function createCityList(citySearchList) {
     $("#forecast-icon" + forecastPosition).append(forecastIcon);
                 console.log(forecast.list[i].weather[0].icon)
 
-    );
+            }});
 
     // add styling (colors) to forecast panels
     $(".forecast").attr(
@@ -129,9 +129,10 @@ function createCityList(citySearchList) {
         "background-color:dodgerblue; color:white"
       );
     }
-  });
-});
-});
+)
+//   });
+// });
+// });
 
 // retrieve city search list from localstorage
 $(document).ready(function() {
@@ -163,7 +164,7 @@ $("#search-button").on("click", function(event) {
       .toLowerCase();
 
     if (city != "") {
-        
+
 // if city is input, show current weather and forecast
         citySearchList[city] = true;
         localStorage.setItem("citySearchList", JSON.stringify(citySearchList));
@@ -173,3 +174,17 @@ $("#search-button").on("click", function(event) {
         $("#current-weather").show();
         $("#forecast-weather").show();
         }
+
+        // activate city list with onClick to show weather for city clicked
+    });
+
+    $("#city-list").on("click", "button", function(event) {
+      event.preventDefault();
+      var city = $(this).text();
+  
+      populateCityWeather(city, citySearchList);
+  
+      $("#current-weather").show();
+      $("#forecast-weather").show();
+    });
+});
