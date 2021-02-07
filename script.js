@@ -21,3 +21,10 @@ function createCityList(citySearchList) {
    function populateCityWeather(city, citySearchList) {
     createCityList(citySearchList);
    
+    var queryURL =
+    "https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=aaf4ebe95bfbef423b2ba1a39922ee77&q=" +
+    city;
+  
+    var queryURL2 =
+    "https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=aaf4ebe95bfbef423b2ba1a39922ee77&q=" +
+    city;
