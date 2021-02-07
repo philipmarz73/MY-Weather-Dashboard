@@ -104,7 +104,7 @@ function createCityList(citySearchList) {
                 var forecastPosition = (i + 2) / 8;
       
                 console.log("#forecast-date" + forecastPosition);
-      
+                // adding date, humidity, temp and icon data to forecast panels 
     $("#forecast-date" + forecastPosition).empty();
     $("#forecast-date" + forecastPosition).append(
             forecastDate.text(nowMoment.add(1, "days").format("M/D/YYYY"))
@@ -117,4 +117,17 @@ function createCityList(citySearchList) {
     );
     $("#forecast-icon" + forecastPosition).empty();
     $("#forecast-icon" + forecastPosition).append(forecastIcon);
-                console.log(forecast.list[i].weather[0].icon);
+                console.log(forecast.list[i].weather[0].icon)
+
+    );
+
+    // add styling (colors) to forecast panels
+    $(".forecast").attr(
+        "style",
+        "background-color:dodgerblue; color:white"
+      );
+    }
+  });
+});
+});
+
