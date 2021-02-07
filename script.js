@@ -17,3 +17,7 @@ function createCityList(citySearchList) {
        $("#city-list").append(cityListEntry);
      }
    }
+
+   function populateCityWeather(city, citySearchList) {
+    createCityList(citySearchList);
+   
