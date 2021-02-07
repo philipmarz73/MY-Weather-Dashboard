@@ -1,3 +1,5 @@
+// creating city list with keys
+
 function createCityList(citySearchList) {
     $("#city-list").empty();
     
@@ -6,7 +8,7 @@ function createCityList(citySearchList) {
        var cityListEntry = $("<button>");
       
        cityListEntry.addClass("list-group-item list-group-item-action");
-
+        //   treating search input to be read properly
        var splitStr = keys[i].toLowerCase().split(" ");
        for (var j = 0; j < splitStr.length; j++) {
          splitStr[j] =
@@ -17,7 +19,7 @@ function createCityList(citySearchList) {
        $("#city-list").append(cityListEntry);
      }
    }
-
+// setting up URLs to return weather data from searched cities from API
    function populateCityWeather(city, citySearchList) {
     createCityList(citySearchList);
    
@@ -31,7 +33,7 @@ function createCityList(citySearchList) {
 
     var latitude;
     var longitude;
-
+// returning present weather based on location and time
   $.ajax({
     url: queryURL,
     method: "GET"
@@ -40,11 +42,11 @@ function createCityList(citySearchList) {
   .then(function(weather) {
     // Log the queryURL
     console.log(queryURL);
-    // Log the resulting object
+    // Log the resulting weather object
     console.log(weather);
 
     var presentMoment = moment()
-
+// showing present time
     var displayMoment = $("<h3>");
       $("#city-name").empty();
       $("#city-name").append(
@@ -52,7 +54,7 @@ function createCityList(citySearchList) {
       );
     var cityName = $("<h3>").text(weather.name);
     $("#city-name").prepend(cityName);
-
+// compiling weather, adding appropriate weather icon
     var weatherIcon = $("<img>");
       weatherIcon.attr(
         "src",
@@ -145,5 +147,21 @@ $(document).ready(function() {
     citySearchList = {};
   }
 
-//    create city search list
+//    create city list from searches
+createCityList(citySearchList);
+
+$("#current-weather").hide();
+$("#forecast-weather").hide();
+
+// set up search button, check for text in input field
+
+$("#search-button").on("click", function(event) {
+    event.preventDefault();
+    var city = $("#city-input")
+      .val()
+      .trim()
+      .toLowerCase();
+
+    if (city != "") {
+
   
