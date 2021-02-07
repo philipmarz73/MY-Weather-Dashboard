@@ -50,3 +50,5 @@ function createCityList(citySearchList) {
       $("#city-name").append(
         displayMoment.text("(" + presentMoment.format("M/D/YYYY") + ")")
       );
+    var cityName = $("<h3>").text(weather.name);
+    $("#city-name").prepend(cityName);
