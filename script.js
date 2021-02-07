@@ -52,3 +52,11 @@ function createCityList(citySearchList) {
       );
     var cityName = $("<h3>").text(weather.name);
     $("#city-name").prepend(cityName);
+
+    var weatherIcon = $("<img>");
+      weatherIcon.attr(
+        "src",
+        "https://openweathermap.org/img/w/" + weather.weather[0].icon + ".png"
+      );
+      $("#current-icon").empty();
+      $("#current-icon").append(weatherIcon);
