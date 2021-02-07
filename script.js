@@ -42,3 +42,11 @@ function createCityList(citySearchList) {
     console.log(queryURL);
     // Log the resulting object
     console.log(weather);
+
+    var presentMoment = moment()
+
+    var displayMoment = $("<h3>");
+      $("#city-name").empty();
+      $("#city-name").append(
+        displayMoment.text("(" + presentMoment.format("M/D/YYYY") + ")")
+      );
