@@ -95,4 +95,17 @@ function createCityList(citySearchList) {
                 // Store all of the retrieved data inside of an object called "forecast"
           }).then(function(forecast) {
                 console.log(queryURL2);   
-     
+                console.log(forecast);
+                // Loop through forecast list array and display a single forecast entry/time for each of 5 days
+                for (var i = 6; i < forecast.list.length; i += 8) {
+                  // 6, 14, 22, 30, 38
+                  var forecastDate = $("<h5>");
+      
+                  var forecastPosition = (i + 2) / 8;
+      
+                  console.log("#forecast-date" + forecastPosition);
+      
+                  $("#forecast-date" + forecastPosition).empty();
+                  $("#forecast-date" + forecastPosition).append(
+                    forecastDate.text(nowMoment.add(1, "days").format("M/D/YYYY"))
+                  );
