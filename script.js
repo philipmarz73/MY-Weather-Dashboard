@@ -31,8 +31,14 @@ function createCityList(citySearchList) {
 
     var latitude;
     var longitude;
-    
+
   $.ajax({
     url: queryURL,
     method: "GET"
   })
+
+  .then(function(weather) {
+    // Log the queryURL
+    console.log(queryURL);
+    // Log the resulting object
+    console.log(weather);
