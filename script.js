@@ -64,3 +64,12 @@ function createCityList(citySearchList) {
       $("#current-temp").text("Temperature: " + weather.main.temp + " °F");
       $("#current-humidity").text("Humidity: " + weather.main.humidity + "%");
       $("#current-wind").text("Wind Speed: " + weather.wind.speed + " MPH");
+
+      latitude = weather.coord.lat;
+      longitude = weather.coord.lon;
+      var queryURL3 =
+        "https://api.openweathermap.org/data/2.5/uvi/forecast?&units=imperial&appid=aaf4ebe95bfbef423b2ba1a39922ee77&q=" +
+        "&lat=" +
+        latitude +
+        "&lon=" +
+        longitude;
